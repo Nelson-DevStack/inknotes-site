@@ -4,11 +4,11 @@ function App() {
   return (
     <>
       <div>
-        <h1 className='text-3xl'>InkNotes</h1>
+        <h1 className='text-3xl font-heading'>Quicksand Font</h1>
       </div>
 
       <div>
-        <p>Initial Setup</p>
+        <p className='font-text'>Source Sans Pro</p>
       </div>
     </>
   )
