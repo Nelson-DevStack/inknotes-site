@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -17,7 +17,7 @@ module.exports = {
       colors: {
         mainColor: '#3777FF',
         accentColor: '#4CE0B3',
-        customRed: '#4CE0B3',
+        customRed: '#FF354D',
       },
     },
   },
