@@ -3,9 +3,9 @@ type HeadingProps = {
   children: React.ReactNode | JSX.Element;
 }
 
-const Heading = ({ children }: HeadingProps) => {
+const Heading = ({ className, children }: HeadingProps) => {
   return (
-    <h1 className={`text-3xl font-heading`}>{children}</h1>
+    <h1 className={`text-3xl font-heading ${className}`}>{children}</h1>
   )
 }
 
