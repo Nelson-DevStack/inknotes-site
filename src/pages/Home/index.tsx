@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import NoteCard from '../../components/NoteCard';
 import NoteForm from '../../components/NoteForm';
@@ -6,8 +6,20 @@ import PlusButton from '../../components/PlusButton';
 import Container from '../../components/UI/Container';
 import Main from '../../components/UI/Main';
 import Subheading from '../../components/UI/Subheading';
+import { NoteType } from '../../types/NoteType';
 
 const HomePage = () => {
+  const [list, setList] = useState<NoteType[]>([]);
+  console.log(list);
+
+  useEffect(() => {
+    const items = localStorage.getItem('InkNotes:NOTES');
+    if (items) {
+      const parsedList = JSON.parse(items);
+      setList(parsedList);
+    }
+  }, []);
+
   return (
     <Main>
       <Container className="grid lg:grid-cols-2 lg:gap-10 py-6">
@@ -19,6 +31,10 @@ const HomePage = () => {
           <Subheading>Suas Anotações</Subheading>
 
           <div>
+            {list.map((note, index) => (
+              <NoteCard key={index} title={note.title} text={note.text} />
+            ))}
+            {/* <NoteCard />
             <NoteCard />
             <NoteCard />
             <NoteCard />
@@ -27,9 +43,7 @@ const HomePage = () => {
             <NoteCard />
             <NoteCard />
             <NoteCard />
-            <NoteCard />
-            <NoteCard />
-            <NoteCard />
+            <NoteCard /> */}
           </div>
         </div>
 

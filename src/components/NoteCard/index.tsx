@@ -3,16 +3,19 @@ import React from 'react';
 import Subheading from '../UI/Subheading';
 import Text from '../UI/Text';
 
-const NoteCard = () => {
+type NoteCardProps = {
+  title: string;
+  text: string;
+};
+
+const NoteCard = ({ title, text }: NoteCardProps) => {
   return (
     <div className="p-4 shadow-md my-3">
       <Subheading className="text-lg text-gray-800 md:text-xl lg:text-lg">
-        Anotação X
+        {/* Anotação X */}
+        {title}
       </Subheading>
-      <Text className="leading-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-        animi at aut harum nostrum quibusdam porro reprehenderit...
-      </Text>
+      <Text className="leading-6">{text}</Text>
 
       <div className="flex justify-between mt-4">
         <button type="button" className="bg-accentColor p-1 px-3 rounded-sm">
