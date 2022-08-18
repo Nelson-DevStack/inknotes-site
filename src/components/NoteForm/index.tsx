@@ -1,11 +1,14 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useContext, useState } from 'react';
 
+import { ModalContext } from '../../contexts/ModalContext';
+import { NoteContext } from '../../contexts/NoteContext';
 import { NoteType } from '../../types/NoteType';
 import Subheading from '../UI/Subheading';
 
 const NoteForm = () => {
-  const [showModal, setShowModal] = useState(true);
-  const [list, setList] = useState<NoteType[]>([]);
+  const { showModal, setShowModal } = useContext(ModalContext);
+  const { mutationValue, setMutationValue } = useContext(NoteContext);
+  // const [showModal, setShowModal] = useState(false);
   const handleClick = () => {
     setShowModal(false);
   };
@@ -16,13 +19,14 @@ const NoteForm = () => {
     const noteList = [];
     const storedItems = localStorage.getItem('InkNotes:NOTES');
     if (storedItems) {
-      setList(JSON.parse(storedItems));
       noteList.push(...JSON.parse(storedItems), {
         id: Math.floor(Math.random() * 500),
         title: title.value,
         text: text.value,
       });
       localStorage.setItem('InkNotes:NOTES', JSON.stringify(noteList));
+      setMutationValue(mutationValue + 1);
+      setShowModal(false);
     } else {
       noteList.push({
         id: Math.floor(Math.random() * 500),
@@ -31,6 +35,8 @@ const NoteForm = () => {
       });
 
       localStorage.setItem('InkNotes:NOTES', JSON.stringify(noteList));
+      setMutationValue(mutationValue + 1);
+      setShowModal(false);
     }
   };
   return (

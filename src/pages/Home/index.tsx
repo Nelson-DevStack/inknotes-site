@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import NoteCard from '../../components/NoteCard';
 import NoteForm from '../../components/NoteForm';
@@ -6,19 +6,21 @@ import PlusButton from '../../components/PlusButton';
 import Container from '../../components/UI/Container';
 import Main from '../../components/UI/Main';
 import Subheading from '../../components/UI/Subheading';
+import { NoteContext } from '../../contexts/NoteContext';
 import { NoteType } from '../../types/NoteType';
 
 const HomePage = () => {
-  const [list, setList] = useState<NoteType[]>([]);
-  console.log(list);
+  // const [list, setList] = useState<NoteType[]>([]);
 
-  useEffect(() => {
-    const items = localStorage.getItem('InkNotes:NOTES');
-    if (items) {
-      const parsedList = JSON.parse(items);
-      setList(parsedList);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const items = localStorage.getItem('InkNotes:NOTES');
+  //   if (items) {
+  //     const parsedList = JSON.parse(items);
+  //     setList(parsedList);
+  //   }
+  // }, []);
+  const { list } = useContext(NoteContext);
+  console.log(list);
 
   return (
     <Main>
