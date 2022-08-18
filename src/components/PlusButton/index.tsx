@@ -5,8 +5,8 @@ import Text from '../UI/Text';
 
 const PlusButton = () => {
   return (
-    <div className="flex gap-3 my-6 items-center">
-      <div className="bg-mainColor w-8 h-8 rounded-full flex items-center justify-center text-white font-medium cursor-pointer">
+    <div className="flex gap-3 my-6 justify-center flex-col-reverse md:flex-row">
+      <div className="bg-mainColor w-8 h-8 p-5 rounded-full flex items-center justify-center text-white font-medium cursor-pointer">
         +
       </div>
 
