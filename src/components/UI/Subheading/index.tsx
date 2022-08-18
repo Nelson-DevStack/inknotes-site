@@ -7,9 +7,7 @@ type SubheadingProps = {
 
 const Subheading = ({ className, children }: SubheadingProps) => {
   return (
-    <h1
-      className={`text-2xl font-text font-medium text-gray-900 md:text-3xl ${className}`}
-    >
+    <h1 className={`text-2xl font-text font-medium text-gray-900 ${className}`}>
       {children}
     </h1>
   );

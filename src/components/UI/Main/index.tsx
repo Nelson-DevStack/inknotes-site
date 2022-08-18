@@ -7,7 +7,7 @@ type MainProps = {
 
 const Main = ({ className, children }: MainProps) => {
   return (
-    <main className={`col-span-12 mt-16 py-6 ${className}`}>{children}</main>
+    <main className={`col-span-12 mt-16 py-6  ${className}`}>{children}</main>
   );
 };
 

@@ -33,7 +33,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex">
+        <div className="lg:flex">
           <NoteForm />
         </div>
       </Container>
