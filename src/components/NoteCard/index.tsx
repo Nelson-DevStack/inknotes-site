@@ -6,7 +6,9 @@ import Text from '../UI/Text';
 const NoteCard = () => {
   return (
     <div className="p-4 shadow-md my-3">
-      <Subheading className="text-lg text-gray-800">Anotação X</Subheading>
+      <Subheading className="text-lg text-gray-800 md:text-xl">
+        Anotação X
+      </Subheading>
       <Text className="leading-6">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
         animi at aut harum nostrum quibusdam porro reprehenderit...
