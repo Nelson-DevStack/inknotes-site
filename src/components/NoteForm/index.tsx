@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useState } from 'react';
+import React, { FormEvent, useContext } from 'react';
 
 import { ModalContext } from '../../contexts/ModalContext';
 import { NoteContext } from '../../contexts/NoteContext';
@@ -8,36 +8,37 @@ import Subheading from '../UI/Subheading';
 const NoteForm = () => {
   const { showModal, setShowModal } = useContext(ModalContext);
   const { mutationValue, setMutationValue } = useContext(NoteContext);
-  // const [showModal, setShowModal] = useState(false);
-  const handleClick = () => {
+  const localStorageName = 'InkNotes:NOTES';
+  const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const saveNoteOperation = (noteList: NoteType[]) => {
+    localStorage.setItem(localStorageName, JSON.stringify(noteList));
+    setMutationValue(mutationValue + 1);
+  };
+
   const createNote = (event: FormEvent) => {
     event.preventDefault();
     const title = document.querySelector('#titleInput') as HTMLInputElement;
     const text = document.querySelector('#textInput') as HTMLTextAreaElement;
-    const noteList = [];
-    const storedItems = localStorage.getItem('InkNotes:NOTES');
-    if (storedItems) {
-      noteList.push(...JSON.parse(storedItems), {
-        id: Math.floor(Math.random() * 500),
-        title: title.value,
-        text: text.value,
-      });
-      localStorage.setItem('InkNotes:NOTES', JSON.stringify(noteList));
-      setMutationValue(mutationValue + 1);
-      setShowModal(false);
-    } else {
-      noteList.push({
-        id: Math.floor(Math.random() * 500),
-        title: title.value,
-        text: text.value,
-      });
+    const storedNotes = localStorage.getItem(localStorageName);
+    const noteList: NoteType[] = [];
+    const newNote = {
+      id: Math.floor(Math.random() * 1000),
+      title: title.value,
+      text: text.value,
+    };
 
-      localStorage.setItem('InkNotes:NOTES', JSON.stringify(noteList));
-      setMutationValue(mutationValue + 1);
-      setShowModal(false);
+    if (storedNotes) {
+      noteList.push(...JSON.parse(storedNotes), newNote);
+      saveNoteOperation(noteList);
+      return setShowModal(false);
     }
+
+    noteList.push();
+    saveNoteOperation(noteList);
+    return setShowModal(false);
   };
   return (
     <div
@@ -48,7 +49,7 @@ const NoteForm = () => {
       <div className="bg-white p-5 max-w-lg lg:max-w-full mx-auto rounded-md relative">
         <button
           type="button"
-          onClick={handleClick}
+          onClick={handleCloseModal}
           className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer lg:hidden"
         >
           x

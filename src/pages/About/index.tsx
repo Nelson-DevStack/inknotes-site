@@ -18,8 +18,8 @@ const AboutPage = () => {
       <Container>
         <Subheading className="text-center">Sobre</Subheading>
         <div className="mt-4">
-          {paragraphs.map((text, index) => (
-            <Text className="my-2 leading-6" key={index}>
+          {paragraphs.map((text) => (
+            <Text className="my-2 leading-6" key={text.length}>
               {text}
             </Text>
           ))}
