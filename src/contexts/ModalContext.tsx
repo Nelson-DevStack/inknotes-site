@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { createContext, useState } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 
 type ModalContextType = {
   showModal: boolean;
@@ -13,16 +11,23 @@ type ProviderChildren = {
 
 const initialValue = {
   showModal: false,
-  setShowModal: () => {},
+  setShowModal: () => ({}),
 };
 
 export const ModalContext = createContext<ModalContextType>(initialValue);
 
 export const ModalProvider = ({ children }: ProviderChildren) => {
   const [showModal, setShowModal] = useState(initialValue.showModal);
+  const providerValues = useMemo(
+    () => ({
+      showModal,
+      setShowModal,
+    }),
+    [showModal]
+  );
 
   return (
-    <ModalContext.Provider value={{ showModal, setShowModal }}>
+    <ModalContext.Provider value={providerValues}>
       {children}
     </ModalContext.Provider>
   );

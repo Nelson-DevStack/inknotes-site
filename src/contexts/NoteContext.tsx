@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useMemo, useState } from 'react';
 
 import { NoteType } from '../types/NoteType';
 
@@ -37,10 +36,13 @@ export const NoteProvider = ({ children }: ProviderChildren) => {
     }
   }, [mutationValue]);
 
+  const providerValues = useMemo(
+    () => ({ list, mutationValue, setList, setMutationValue }),
+    [list, mutationValue]
+  );
+
   return (
-    <NoteContext.Provider
-      value={{ list, setList, mutationValue, setMutationValue }}
-    >
+    <NoteContext.Provider value={providerValues}>
       {children}
     </NoteContext.Provider>
   );
