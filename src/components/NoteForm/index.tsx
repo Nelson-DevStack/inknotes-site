@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { FormEvent, useContext } from 'react';
 
 import { ModalContext } from '../../contexts/ModalContext';
@@ -18,6 +19,11 @@ const NoteForm = () => {
     setMutationValue(mutationValue + 1);
   };
 
+  const clearForm = (title: HTMLInputElement, text: HTMLTextAreaElement) => {
+    title.value = '';
+    text.value = '';
+  };
+
   const createNote = (event: FormEvent) => {
     event.preventDefault();
     const title = document.querySelector('#titleInput') as HTMLInputElement;
@@ -33,11 +39,13 @@ const NoteForm = () => {
     if (storedNotes) {
       noteList.push(...JSON.parse(storedNotes), newNote);
       saveNoteOperation(noteList);
+      clearForm(title, text);
       return setShowModal(false);
     }
 
     noteList.push();
     saveNoteOperation(noteList);
+    clearForm(title, text);
     return setShowModal(false);
   };
   return (
