@@ -1,9 +1,10 @@
-/* eslint-disable no-param-reassign */
 import React, { FormEvent, useContext } from 'react';
 
 import { ModalContext } from '../../contexts/ModalContext';
 import { NoteContext } from '../../contexts/NoteContext';
 import { NoteType } from '../../types/NoteType';
+import { checkInputEmpty } from '../../utils/checkInputEmpty';
+import { clearForm } from '../../utils/clearForm';
 import Subheading from '../UI/Subheading';
 
 const NoteForm = () => {
@@ -19,24 +20,38 @@ const NoteForm = () => {
     setMutationValue(mutationValue + 1);
   };
 
-  const clearForm = (title: HTMLInputElement, text: HTMLTextAreaElement) => {
-    title.value = '';
-    text.value = '';
-  };
-
   const createNote = (event: FormEvent) => {
     event.preventDefault();
     const title = document.querySelector('#titleInput') as HTMLInputElement;
     const text = document.querySelector('#textInput') as HTMLTextAreaElement;
     const storedNotes = localStorage.getItem(localStorageName);
     const noteList: NoteType[] = [];
-    const newNote = {
+
+    const errors = checkInputEmpty(title);
+    if (errors.length > 0) {
+      return alert(errors[0]);
+    }
+
+    const newNote: NoteType = {
       id: Math.floor(Math.random() * 1000),
       title: title.value,
       text: text.value,
+      createdAt: new Date(),
     };
 
     if (storedNotes) {
+      const parsedNotes = JSON.parse(storedNotes);
+      const storedAndSortedNotes = parsedNotes.sort(
+        (a: NoteType, b: NoteType) => {
+          if (a.createdAt > b.createdAt) return -1;
+          if (a.createdAt < b.createdAt) return 1;
+          return 0;
+          // console.log(a.createdAt);
+          // console.log(b.createdAt);
+        }
+      );
+      console.log(storedAndSortedNotes);
+      // console.log(parsedNotes);
       noteList.push(...JSON.parse(storedNotes), newNote);
       saveNoteOperation(noteList);
       clearForm(title, text);

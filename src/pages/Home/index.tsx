@@ -23,7 +23,9 @@ const HomePage = () => {
 
           <div>
             {list.map((note) => (
-              <NoteCard key={note.id} title={note.title} text={note.text} />
+              <span key={note.id}>
+                <NoteCard title={note.title} text={note.text} />
+              </span>
             ))}
           </div>
         </div>
