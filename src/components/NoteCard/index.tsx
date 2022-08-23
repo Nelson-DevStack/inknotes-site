@@ -24,7 +24,7 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
   };
 
   return (
-    <div className="p-4 shadow-md my-3">
+    <div className="p-4 shadow-md my-3 bg-white">
       <Subheading className="text-lg text-gray-800 md:text-xl lg:text-lg">
         {/* Anotação X */}
         {title}

@@ -14,7 +14,9 @@ const HomePage = () => {
   const { list } = useContext(NoteContext);
 
   return (
-    <Main>
+    <Main
+      className={`before:bg-[url("/src/assets/polka-dots.svg")] before:absolute before:w-full before:min-h-screen before:-z-10 before:opacity-[.015] before:-mt-5`}
+    >
       <Container className="grid lg:grid-cols-2 lg:gap-10 py-6">
         <div className="lg:hidden">
           <PlusButton />
@@ -24,14 +26,6 @@ const HomePage = () => {
           <Subheading>Suas Anotações</Subheading>
 
           <div>
-            {/* {list.map((note) => (
-              <NoteCard
-                key={String(note.createdAt)}
-                id={note.id}
-                title={note.title}
-                text={note.text}
-              />
-            ))} */}
             {list.length === 0 ? (
               <div className="mt-10">
                 <Text>Ainda não há nehuma anotação. Clique no "+".</Text>

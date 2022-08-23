@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 type MainProps = {
   className?: string;
   children: React.ReactNode | JSX.Element;
 };
 
-const Main = ({ className, children }: MainProps) => {
+const Main = ({ className, children, style }: MainProps) => {
   return (
     <main className={`col-span-12 mt-16 py-6  ${className}`}>{children}</main>
   );
