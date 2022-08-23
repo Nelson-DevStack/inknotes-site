@@ -16,7 +16,7 @@ const BackButton = (previousPage: BackButtonProps) => {
     <button
       type="button"
       onClick={handleBack}
-      className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer mb-5"
+      className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer mb-5 transition hover:bg-gray-300"
     >
       <BiArrowBack />
     </button>

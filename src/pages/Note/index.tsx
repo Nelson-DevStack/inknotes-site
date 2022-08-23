@@ -18,14 +18,15 @@ const NotePage = () => {
   // == Util
   const searchNoteById = (noteId: string | number | undefined) => {
     const storedNotes = localStorage.getItem(localStorageName);
-    if (!storedNotes) {
-      return navigate('/');
+    if (storedNotes) {
+      const parsedNotes = JSON.parse(storedNotes);
+      const filteredNote = parsedNotes.filter((note: NoteType) => {
+        return note.id === Number(noteId);
+      });
+      return filteredNote;
     }
-    const parsedNotes = JSON.parse(storedNotes);
-    const filteredNote = parsedNotes.filter((note: NoteType) => {
-      return note.id === Number(noteId);
-    });
-    return filteredNote;
+
+    return [];
   };
   // ** Util
 
@@ -38,7 +39,7 @@ const NotePage = () => {
 
   useEffect(() => {
     const note = searchNoteById(noteId);
-    setNoteInStates(note[0]);
+    return note.length === 0 ? navigate('/') : setNoteInStates(note[0]);
   }, []);
 
   return (

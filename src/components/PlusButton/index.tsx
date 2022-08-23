@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext } from 'react';
+import { BiPlus } from 'react-icons/bi';
 
 import { ModalContext } from '../../contexts/ModalContext';
 import Text from '../UI/Text';
@@ -12,9 +13,9 @@ const PlusButton = () => {
       <button
         type="button"
         onClick={() => setShowModal(true)}
-        className="bg-mainColor w-8 h-8 p-5 rounded-full flex items-center justify-center text-white font-medium cursor-pointer"
+        className="bg-mainColor w-10 h-10 rounded-full flex items-center justify-center cursor-pointer mb-5 transition hover:bg-blue-600 text-xl"
       >
-        +
+        <BiPlus color="#fff" />
       </button>
 
       <Text>Clique no "+" para criar uma anotação</Text>

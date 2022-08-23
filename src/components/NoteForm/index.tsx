@@ -1,4 +1,5 @@
 import React, { FormEvent, useContext } from 'react';
+import { BiX } from 'react-icons/bi';
 
 import { ModalContext } from '../../contexts/ModalContext';
 import { NoteContext } from '../../contexts/NoteContext';
@@ -64,7 +65,7 @@ const NoteForm = () => {
           onClick={handleCloseModal}
           className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer lg:hidden"
         >
-          x
+          <BiX />
         </button>
         <Subheading className="text-center">Criar Anotação</Subheading>
 
