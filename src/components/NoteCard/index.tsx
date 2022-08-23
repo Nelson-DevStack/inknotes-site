@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { NoteContext } from '../../contexts/NoteContext';
+import { deleteNote } from '../../utils/deleteNote';
 import Subheading from '../UI/Subheading';
 import Text from '../UI/Text';
 
@@ -11,9 +13,14 @@ type NoteCardProps = {
 };
 
 const NoteCard = ({ id, title, text }: NoteCardProps) => {
+  const { mutationValue, setMutationValue } = useContext(NoteContext);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(`/${id}`);
+  };
+  const handleDelete = (noteId: string | number) => {
+    deleteNote(noteId);
+    setMutationValue(mutationValue + 1);
   };
 
   return (
@@ -36,6 +43,9 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
         <button
           type="button"
           className="bg-customRed p-1 px-3 rounded-sm text-white"
+          onClick={() => {
+            handleDelete(id);
+          }}
         >
           Del
         </button>
