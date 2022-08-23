@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import BackButton from '../../components/BackButton';
 import Container from '../../components/UI/Container';
 import Main from '../../components/UI/Main';
 import Subheading from '../../components/UI/Subheading';
@@ -43,6 +44,7 @@ const NotePage = () => {
   return (
     <Main>
       <Container>
+        <BackButton previousPage={false} />
         <Subheading>{noteTitle}</Subheading>
         <Text>{noteText}</Text>
       </Container>
