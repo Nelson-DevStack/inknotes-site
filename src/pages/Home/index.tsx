@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <Main
-      className={`before:bg-[url("/src/assets/polka-dots.svg")] before:absolute before:w-full before:min-h-screen before:-z-10 before:opacity-[.015] before:-mt-5`}
+      className={`before:bg-[url("/src/assets/polka-dots.svg")] before:absolute before:w-full before:min-h-screen before:-z-10 before:opacity-[.010] before:-mt-5`}
     >
       <Container className="grid lg:grid-cols-2 lg:gap-10 py-6">
         <div className="lg:hidden">
@@ -27,8 +27,8 @@ const HomePage = () => {
 
           <div>
             {list.length === 0 ? (
-              <div className="mt-10">
-                <Text>Ainda não há nehuma anotação. Clique no "+".</Text>
+              <div className="mt-4">
+                <Text>Ainda não há nehuma anotação</Text>
               </div>
             ) : (
               list.map((note) => (

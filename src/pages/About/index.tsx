@@ -15,12 +15,15 @@ const AboutPage = () => {
 
   return (
     <Main>
-      <Container className="flex flex-col items-center md:!max-w-2xl lg:flex-row lg:!max-w-5xl gap-32">
+      <Container className="flex flex-col items-center md:!max-w-2xl lg:flex-row lg:!max-w-5xl lg:gap-32">
         <div>
           <Subheading className="text-center lg:text-start">Sobre</Subheading>
           <div className="mt-4">
             {paragraphs.map((text) => (
-              <Text className="my-2 leading-6 md:my-0" key={text.length}>
+              <Text
+                className="my-2 leading-6 md:my-0 lg:my-2"
+                key={text.length}
+              >
                 {text}
               </Text>
             ))}
