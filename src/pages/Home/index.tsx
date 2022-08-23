@@ -23,9 +23,11 @@ const HomePage = () => {
 
           <div>
             {list.map((note) => (
-              <span key={note.id}>
-                <NoteCard title={note.title} text={note.text} />
-              </span>
+              <NoteCard
+                key={String(note.createdAt)}
+                title={note.title}
+                text={note.text}
+              />
             ))}
           </div>
         </div>

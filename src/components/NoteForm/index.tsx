@@ -40,25 +40,14 @@ const NoteForm = () => {
     };
 
     if (storedNotes) {
-      const parsedNotes = JSON.parse(storedNotes);
-      const storedAndSortedNotes = parsedNotes.sort(
-        (a: NoteType, b: NoteType) => {
-          if (a.createdAt > b.createdAt) return -1;
-          if (a.createdAt < b.createdAt) return 1;
-          return 0;
-          // console.log(a.createdAt);
-          // console.log(b.createdAt);
-        }
-      );
-      console.log(storedAndSortedNotes);
-      // console.log(parsedNotes);
-      noteList.push(...JSON.parse(storedNotes), newNote);
+      noteList.push(...JSON.parse(storedNotes));
+      noteList.push(newNote);
       saveNoteOperation(noteList);
       clearForm(title, text);
       return setShowModal(false);
     }
 
-    noteList.push();
+    noteList.push(newNote);
     saveNoteOperation(noteList);
     clearForm(title, text);
     return setShowModal(false);
