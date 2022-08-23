@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AboutPage from './pages/About';
 import HomePage from './pages/Home';
+import NotePage from './pages/Note';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/sobre" element={<AboutPage />} />
+        <Route path="/:noteId" element={<NotePage />} />
       </Routes>
     </>
   );

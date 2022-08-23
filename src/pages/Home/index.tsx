@@ -25,6 +25,7 @@ const HomePage = () => {
             {list.map((note) => (
               <NoteCard
                 key={String(note.createdAt)}
+                id={note.id}
                 title={note.title}
                 text={note.text}
               />
