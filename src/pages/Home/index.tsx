@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useContext } from 'react';
 
 import NoteCard from '../../components/NoteCard';
@@ -6,6 +7,7 @@ import PlusButton from '../../components/PlusButton';
 import Container from '../../components/UI/Container';
 import Main from '../../components/UI/Main';
 import Subheading from '../../components/UI/Subheading';
+import Text from '../../components/UI/Text';
 import { NoteContext } from '../../contexts/NoteContext';
 
 const HomePage = () => {
@@ -22,14 +24,28 @@ const HomePage = () => {
           <Subheading>Suas Anotações</Subheading>
 
           <div>
-            {list.map((note) => (
+            {/* {list.map((note) => (
               <NoteCard
                 key={String(note.createdAt)}
                 id={note.id}
                 title={note.title}
                 text={note.text}
               />
-            ))}
+            ))} */}
+            {list.length === 0 ? (
+              <div className="mt-10">
+                <Text>Ainda não há nehuma anotação. Clique no "+".</Text>
+              </div>
+            ) : (
+              list.map((note) => (
+                <NoteCard
+                  key={String(note.createdAt)}
+                  id={note.id}
+                  title={note.title}
+                  text={note.text}
+                />
+              ))
+            )}
           </div>
         </div>
 
