@@ -13,6 +13,12 @@ type NoteCardProps = {
 };
 
 const NoteCard = ({ id, title, text }: NoteCardProps) => {
+  const textLengthToCrop = 80;
+  const croppedText =
+    text.length < textLengthToCrop
+      ? text
+      : `${text.slice(0, textLengthToCrop)}...`;
+
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -29,10 +35,10 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
         setShowModal={setShowModal}
         noteId={id}
       />
-      <Subheading className="text-lg text-gray-800 md:text-xl lg:text-lg">
+      <Subheading className="text-lg text-gray-800 md:text-xl lg:text-lg font-semibold">
         {title}
       </Subheading>
-      <Text className="leading-6">{text}</Text>
+      <Text className="leading-6">{croppedText}</Text>
 
       <div className="flex justify-between mt-4">
         <button
