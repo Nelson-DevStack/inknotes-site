@@ -37,7 +37,7 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
         setShowModal={setShowModal}
         noteId={id}
       />
-      <Subheading className="text-lg text-gray-800 md:text-xl lg:text-lg font-semibold">
+      <Subheading className="!text-xl lg:!text-lg text-gray-800 font-semibold">
         {title}
       </Subheading>
       <Text className="leading-6">{croppedText}</Text>

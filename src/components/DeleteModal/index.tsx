@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { NoteContext } from '../../contexts/NoteContext';
 import { deleteNote } from '../../utils/deleteNote';
-import Subheading from '../UI/Subheading';
-import Text from '../UI/Text';
 
 type DeleteModalProps = {
   showModal: boolean;
@@ -19,8 +17,23 @@ const DeleteModal = ({ showModal, setShowModal, noteId }: DeleteModalProps) => {
   };
 
   const handleClose = () => {
-    setShowModal(!showModal);
+    setShowModal(false);
   };
+
+  useEffect(() => {
+    const keyDownHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        handleClose();
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
 
   return (
     <div

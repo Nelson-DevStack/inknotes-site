@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext } from 'react';
+import React, { FormEvent, useContext, useEffect } from 'react';
 import { BiX } from 'react-icons/bi';
 
 import { ModalContext } from '../../contexts/ModalContext';
@@ -53,6 +53,22 @@ const NoteForm = () => {
     clearForm(title, text);
     return setShowModal(false);
   };
+
+  useEffect(() => {
+    const keyDownHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
+
   return (
     <div
       className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border rounded-md shadow-lg ${
