@@ -22,8 +22,10 @@ const HomePage = () => {
           <PlusButton />
         </div>
 
-        <div className="">
+        <div>
           <Subheading>Suas Anotações</Subheading>
+
+          <hr className="my-4 border border-gray-300 max-w-md" />
 
           <div>
             {list.length === 0 ? (

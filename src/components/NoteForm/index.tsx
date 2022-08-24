@@ -63,7 +63,7 @@ const NoteForm = () => {
         <button
           type="button"
           onClick={handleCloseModal}
-          className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer lg:hidden"
+          className="bg-gray-100 transition hover:bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer lg:hidden"
         >
           <BiX />
         </button>

@@ -17,7 +17,8 @@ module.exports = {
       colors: {
         mainColor: '#3777FF',
         accentColor: '#4CE0B3',
-        customRed: '#FF354D',
+        customRed: '#e8485b',
+        hoverRed: '#cf4051',
       },
     },
   },
