@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
+import { setScrollPosition } from '../../utils/scrollPosition';
 import DeleteModal from '../DeleteModal';
 import Subheading from '../UI/Subheading';
 import Text from '../UI/Text';
@@ -22,6 +23,7 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const handleNavigate = () => {
+    setScrollPosition();
     navigate(`/${id}`);
   };
   const handleClick = () => {

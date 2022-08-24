@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import NoteCard from '../../components/NoteCard';
 import NoteForm from '../../components/NoteForm';
@@ -9,9 +9,13 @@ import Main from '../../components/UI/Main';
 import Subheading from '../../components/UI/Subheading';
 import Text from '../../components/UI/Text';
 import { NoteContext } from '../../contexts/NoteContext';
+import { retrieveScrollPosition } from '../../utils/scrollPosition';
 
 const HomePage = () => {
   const { list } = useContext(NoteContext);
+  useEffect(() => {
+    retrieveScrollPosition();
+  }, []);
 
   return (
     <Main
