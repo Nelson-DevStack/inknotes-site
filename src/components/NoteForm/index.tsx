@@ -55,7 +55,7 @@ const NoteForm = () => {
   };
   return (
     <div
-      className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:block border rounded-md shadow-lg ${
+      className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border rounded-md shadow-lg ${
         showModal ? 'block' : 'hidden'
       }`}
     >

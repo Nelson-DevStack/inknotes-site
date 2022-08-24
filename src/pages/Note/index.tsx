@@ -44,10 +44,11 @@ const NotePage = () => {
 
   return (
     <Main>
-      <Container>
+      <Container className="py-6">
         <BackButton previousPage={false} />
         <Subheading>{noteTitle}</Subheading>
-        <Text>{noteText}</Text>
+        <hr className="my-2 border border-gray-300" />
+        <Text className="whitespace-pre-wrap">{noteText}</Text>
       </Container>
     </Main>
   );
