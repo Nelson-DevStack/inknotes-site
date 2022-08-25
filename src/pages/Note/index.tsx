@@ -64,7 +64,9 @@ const NotePage = () => {
   }, []);
 
   return (
-    <Main>
+    <Main
+      className={`before:bg-[url("/src/assets/polka-dots.svg")] before:absolute before:w-full before:min-h-screen before:-z-10 before:opacity-[.010] before:-mt-5`}
+    >
       <Container className="py-6">
         <div className="flex items-center justify-between mb-5">
           <BackButton previousPage={false} />

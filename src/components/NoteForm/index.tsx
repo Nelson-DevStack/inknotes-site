@@ -1,5 +1,6 @@
 import React, { FormEvent, useContext, useEffect } from 'react';
 import { BiX } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 
 import { ModalContext } from '../../contexts/ModalContext';
 import { NoteContext } from '../../contexts/NoteContext';
@@ -30,7 +31,13 @@ const NoteForm = () => {
 
     const errors = checkInputEmpty(title);
     if (errors.length > 0) {
-      return alert(errors[0]);
+      return errors.map((err) => {
+        return toast.error(err, {
+          position: 'top-center',
+          closeOnClick: true,
+          autoClose: 4000,
+        });
+      });
     }
 
     const newNote: NoteType = {
