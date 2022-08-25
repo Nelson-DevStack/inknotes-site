@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         heading: ['Quicksand', 'sans-serif'],
         text: ['Source Sans Pro', 'sans-serif'],
+        textVariable: ['Karla', 'sans-serif'],
       },
       colors: {
         mainColor: '#3777FF',

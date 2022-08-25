@@ -3,7 +3,6 @@ import { NoteType } from '../types/NoteType';
 const localStorageName = 'InkNotes:NOTES';
 
 export const deleteNote = (noteId: string | number | undefined) => {
-  console.log(`Delete note: ${noteId}`);
   const storedNotes = localStorage.getItem(localStorageName);
   if (storedNotes) {
     const parsedNotes = JSON.parse(storedNotes);

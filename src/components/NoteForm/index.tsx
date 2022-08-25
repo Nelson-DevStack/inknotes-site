@@ -71,7 +71,7 @@ const NoteForm = () => {
 
   return (
     <div
-      className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border rounded-md shadow-lg ${
+      className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border lg:rounded-md shadow-lg ${
         showModal ? 'block' : 'hidden'
       }`}
     >
@@ -88,7 +88,7 @@ const NoteForm = () => {
         <form className="flex flex-col" onSubmit={createNote}>
           <label
             htmlFor="titleInput"
-            className="flex flex-col text-lg font-medium my-3"
+            className="flex flex-col text-lg font-medium my-3 font-textVariable"
           >
             Título
             <input
@@ -99,7 +99,7 @@ const NoteForm = () => {
           </label>
           <label
             htmlFor="textInput"
-            className="flex flex-col text-lg font-medium my-3"
+            className="flex flex-col text-lg font-medium my-3 font-textVariable"
           >
             Anotação
             <textarea

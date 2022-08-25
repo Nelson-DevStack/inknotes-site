@@ -37,10 +37,10 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
         setShowModal={setShowModal}
         noteId={id}
       />
-      <Subheading className="!text-xl lg:!text-lg text-gray-800 font-semibold">
+      <Subheading className="!text-xl text-gray-800 font-textVariable font-semibold tracking-tight">
         {title}
       </Subheading>
-      <Text className="leading-6">{croppedText}</Text>
+      <Text className="leading-6 !text-base">{croppedText}</Text>
 
       <div className="flex justify-between mt-4">
         <button
