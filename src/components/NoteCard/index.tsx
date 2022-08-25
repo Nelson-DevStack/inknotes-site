@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
+import { lengthCrop } from '../../utils/lengthCrop';
 import { setScrollPosition } from '../../utils/scrollPosition';
 import DeleteModal from '../DeleteModal';
 import Subheading from '../UI/Subheading';
@@ -14,11 +15,8 @@ type NoteCardProps = {
 };
 
 const NoteCard = ({ id, title, text }: NoteCardProps) => {
-  const textLengthToCrop = 80;
-  const croppedText =
-    text.length < textLengthToCrop
-      ? text
-      : `${text.slice(0, textLengthToCrop)}...`;
+  const croppedTitle = lengthCrop(80, title);
+  const croppedText = lengthCrop(80, text);
 
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
@@ -38,7 +36,7 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
         noteId={id}
       />
       <Subheading className="!text-xl text-gray-800 font-textVariable font-semibold tracking-tight">
-        {title}
+        {croppedTitle}
       </Subheading>
       <Text className="leading-6 !text-base">{croppedText}</Text>
 
