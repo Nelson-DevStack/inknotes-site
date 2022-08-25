@@ -6,12 +6,12 @@ import { deleteNote } from '../../utils/deleteNote';
 type DeleteModalProps = {
   showModal: boolean;
   setShowModal: (newState: boolean) => void;
-  noteId: string | number;
+  noteId: string | number | undefined;
 };
 
 const DeleteModal = ({ showModal, setShowModal, noteId }: DeleteModalProps) => {
   const { mutationValue, setMutationValue } = useContext(NoteContext);
-  const handleDelete = (noteId: string | number) => {
+  const handleDelete = (noteId: string | number | undefined) => {
     deleteNote(noteId);
     setMutationValue(mutationValue + 1);
   };
