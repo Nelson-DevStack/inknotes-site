@@ -31,7 +31,7 @@ const NoteCard = ({ id, title, text }: NoteCardProps) => {
   };
 
   return (
-    <div className="p-4 shadow-md my-3 bg-white">
+    <div className="p-4 border shadow-sm my-4 bg-white rounded-md">
       <DeleteModal
         showModal={showModal}
         setShowModal={setShowModal}

@@ -29,7 +29,7 @@ const HomePage = () => {
         <div>
           <Subheading>Suas Anotações</Subheading>
 
-          <hr className="my-4 border border-gray-300 max-w-md" />
+          <hr className="my-4 border border-gray-300" />
 
           <div>
             {list.length === 0 ? (

@@ -94,7 +94,7 @@ const NoteForm = () => {
             <input
               type="text"
               id="titleInput"
-              className="p-1 text-lg border-b border-gray-300 font-normal"
+              className="p-2 text-lg border-b border-gray-400 font-normal outline-none border-x border-x-transparent border-t border-t-transparent focus:border-x-gray-400 focus:border-t-gray-400 focus:rounded-md"
             />
           </label>
           <label
@@ -105,13 +105,13 @@ const NoteForm = () => {
             <textarea
               id="textInput"
               rows={8}
-              className="p-1 text-lg border-b border-gray-300 my-2 font-normal"
+              className="p-2 text-lg border-b border-gray-400 my-2 font-normal outline-none border-x border-x-transparent border-t border-t-transparent focus:border-x-gray-400 focus:border-t-gray-400 focus:rounded-md"
             />
           </label>
 
           <button
             type="submit"
-            className="w-full bg-mainColor p-2 text-lg text-white font-medium"
+            className="w-full cursor-pointer bg-mainColor p-2 text-lg text-white font-medium transition duration-200 hover:scale-105"
           >
             Salvar
           </button>
