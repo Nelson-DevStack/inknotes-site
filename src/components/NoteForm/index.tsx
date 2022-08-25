@@ -71,10 +71,11 @@ const NoteForm = () => {
 
   return (
     <div
-      className={`w-full absolute top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border lg:rounded-md shadow-lg ${
+      className={`w-full fixed top-16 inset-x-0 min-h-screen bg-black/60 p-5 lg:static lg:bg-white z-auto lg:min-h-fit lg:max-h-fit lg:block border lg:rounded-md shadow-lg ${
         showModal ? 'block' : 'hidden'
       }`}
     >
+      <div className="absolute bg-black opacity-60 inset-0 z-0 lg:hidden" />
       <div className="bg-white p-5 max-w-lg lg:max-w-full mx-auto rounded-md relative">
         <button
           type="button"
