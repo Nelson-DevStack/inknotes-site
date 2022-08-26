@@ -3,7 +3,6 @@ import React from 'react';
 import completedTaskImage from '../../assets/completed-task.svg';
 import Container from '../../components/UI/Container';
 import Main from '../../components/UI/Main';
-import Subheading from '../../components/UI/Subheading';
 import Text from '../../components/UI/Text';
 
 const AboutPage = () => {
