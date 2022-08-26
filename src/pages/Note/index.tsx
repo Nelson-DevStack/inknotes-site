@@ -52,7 +52,7 @@ const NotePage = () => {
           <div className="space-x-4">
             <button
               type="button"
-              className="flex items-center gap-2 p-2 cursor-pointer transition duration-200 text-lg border bg-gray-100 rounded-sm hover:bg-gray-200 transition duration-500"
+              className="flex items-center justify-center gap-2 px-3 max-w-lg min-w-fit h-10 cursor-pointer transition duration-200 text-lg border bg-gray-100 rounded-sm hover:bg-gray-200 transition duration-500"
               onClick={handleCopyClick}
             >
               <BiCopy />

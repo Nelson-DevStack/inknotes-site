@@ -17,7 +17,9 @@ const AboutPage = () => {
     <Main>
       <Container className="flex flex-col items-center md:!max-w-2xl lg:flex-row lg:!max-w-5xl lg:gap-32">
         <div>
-          <Subheading className="text-center lg:text-start">Sobre</Subheading>
+          <h2 className="text-2xl text-center font-variableText font-medium lg:text-start">
+            Sobre
+          </h2>
           <div className="mt-4">
             {paragraphs.map((text) => (
               <Text
