@@ -7,7 +7,7 @@ const searchNoteById = (noteId: string | number | undefined) => {
   if (storedNotes) {
     const parsedNotes = JSON.parse(storedNotes);
     const filteredNote = parsedNotes.filter((note: NoteType) => {
-      return note.id === Number(noteId);
+      return note.id === String(noteId);
     });
     return filteredNote;
   }

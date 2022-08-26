@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React, { FormEvent, useContext, useEffect } from 'react';
 import { BiX } from 'react-icons/bi';
 import { toast } from 'react-toastify';
@@ -41,7 +42,7 @@ const NoteForm = () => {
     }
 
     const newNote: NoteType = {
-      id: Math.floor(Math.random() * 1000),
+      id: nanoid(),
       title: title.value,
       text: text.value,
       createdAt: new Date(),
