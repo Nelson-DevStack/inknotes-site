@@ -13,6 +13,7 @@ import { retrieveScrollPosition } from '../../utils/scrollPosition';
 
 const HomePage = () => {
   const { list } = useContext(NoteContext);
+
   useEffect(() => {
     retrieveScrollPosition();
   }, []);

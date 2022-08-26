@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 
 import { NoteContext } from '../../contexts/NoteContext';
-import { deleteNote } from '../../utils/deleteNote';
+import { deleteNote } from '../../services/Note/deleteNote';
 
 type DeleteModalProps = {
   showModal: boolean;
