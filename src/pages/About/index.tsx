@@ -31,7 +31,10 @@ const AboutPage = () => {
         </div>
 
         <div className="px-8 mt-10">
-          <img src={completedTaskImage} alt="Ilustração Task" />
+          <img
+            src={completedTaskImage}
+            alt="Ilustração de Pessoas fazendo Anotações"
+          />
         </div>
       </Container>
     </Main>
