@@ -7,8 +7,9 @@ import Text from '../../components/UI/Text';
 
 const AboutPage = () => {
   const paragraphs = [
-    'Precisa fazer uma anotação rápida e simples? O InkNotes te ajuda a criar essas anotações.',
-    'Com a simplicidade e leveza, o InkNotes é um simples Web App feito para facilitar a criação de anotações, de forma prática.',
+    // 'Precisa fazer uma anotação rápida e simples? O InkNotes te ajuda a criar essas anotações.',
+    // 'Com a simplicidade e leveza, o InkNotes é um simples Web App feito para facilitar a criação de anotações, de forma prática.',
+    'Com o InkNotes, você pode fazer anotações e textos de forma rápida e simples.',
     'Contando com um Código Aberto (Open-Source), o InkNotes foi feito utilizando a tecnologia React.js.',
   ];
 
