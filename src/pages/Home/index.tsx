@@ -22,7 +22,7 @@ const HomePage = () => {
     <Main
       className={`before:bg-[url("/src/assets/polka-dots.svg")] before:absolute before:w-full before:min-h-screen before:-z-10 before:opacity-[.010] before:-mt-5`}
     >
-      <Container className="grid lg:grid-cols-2 lg:gap-10 py-6">
+      <Container className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-10 py-6">
         <div className="lg:hidden">
           <PlusButton />
         </div>
